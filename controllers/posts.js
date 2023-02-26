@@ -41,9 +41,19 @@ const deletePost = async (req, res) => {
   }
 };
 
+const show = async (req, res) => {
+  try {
+    const post = await Post.findByPk(req.params.id);
+    res.status(200).json(post);
+  } catch (error) {
+    res.status(500).json({ err: error });
+  }
+};
+
 module.exports = {
   create,
   index,
   update,
   delete: deletePost,
+  show,
 };
