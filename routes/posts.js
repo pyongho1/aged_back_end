@@ -11,5 +11,6 @@ router.use(decodeUserFromToken);
 router.get("/", checkAuth, postsCtrl.index);
 router.post("/", checkAuth, postsCtrl.create);
 router.put("/:id", checkAuth, postsCtrl.update);
+router.delete("/:id", checkAuth, postsCtrl.delete);
 
 module.exports = router;
